@@ -1,0 +1,125 @@
+{
+  "name": "SKILL_FORGE_FROM_URL",
+  "nodes": {
+    "n1": {
+      "config": {},
+      "id": "n1",
+      "type": "start",
+      "x": 60,
+      "y": 220
+    },
+    "n10": {
+      "config": {},
+      "id": "n10",
+      "type": "screenshot",
+      "x": 2050,
+      "y": 220
+    },
+    "n11": {
+      "config": {
+        "filename": "skill_from_url.md"
+      },
+      "id": "n11",
+      "type": "save_result",
+      "x": 2270,
+      "y": 220
+    },
+    "n2": {
+      "config": {
+        "url": "https://stannards-my.sharepoint.com/:x:/r/personal/kieran_farrell_stannards_com_au/_layouts/15/Doc.aspx?sourcedoc=%7BEF9E8724-85AA-4DD5-9675-00CB77C099D7%7D&file=Book.xlsx&action=editnew&mobileredirect=true"
+      },
+      "id": "n2",
+      "type": "navigate_url",
+      "x": 290,
+      "y": 220
+    },
+    "n3": {
+      "config": {
+        "seconds": 5
+      },
+      "id": "n3",
+      "type": "wait",
+      "x": 510,
+      "y": 220
+    },
+    "n7": {
+      "config": {},
+      "id": "n7",
+      "type": "open_panel",
+      "x": 1390,
+      "y": 220
+    },
+    "n8": {
+      "config": {
+        "seconds": 3
+      },
+      "id": "n8",
+      "type": "wait",
+      "x": 1610,
+      "y": 220
+    },
+    "n9": {
+      "config": {
+        "mode": "heavy",
+        "prompt": "A screenshot of a documentation or reference page was captured in the step before this one. That screenshot is your primary context.\n\nBased solely on the content visible in that screenshot, produce a complete Claude Code skill written in Markdown.\n\nThe skill must include:\n1. A name derived from the documented subject matter\n2. A trigger description: exactly when an AI assistant should invoke this skill\n3. Pre-conditions or inputs the user must supply\n4. Numbered step-by-step execution instructions Claude should follow\n5. At least two concrete worked examples (input \u00e2\u2020\u2019 output)\n6. Known limitations, edge cases, and fallback behaviour\n\nOutput format rules (strictly enforced):\n- Your ENTIRE response must be ONE fenced code block\n- Open with ```markdown on its own line\n- Close with ``` on its own line\n- Zero text outside the fences\n- Do not truncate \u00e2\u20ac\u201d write the full skill",
+        "wait": 90
+      },
+      "id": "n9",
+      "type": "chatgpt_prompt",
+      "x": 1830,
+      "y": 220
+    }
+  },
+  "connections": [
+    {
+      "from": "n1",
+      "fromPort": 0,
+      "id": "c1",
+      "to": "n2",
+      "toPort": 0
+    },
+    {
+      "from": "n2",
+      "fromPort": 0,
+      "id": "c2",
+      "to": "n3",
+      "toPort": 0
+    },
+    {
+      "from": "n7",
+      "fromPort": 0,
+      "id": "c7",
+      "to": "n8",
+      "toPort": 0
+    },
+    {
+      "from": "n8",
+      "fromPort": 0,
+      "id": "c8",
+      "to": "n9",
+      "toPort": 0
+    },
+    {
+      "from": "n9",
+      "fromPort": 0,
+      "id": "c9",
+      "to": "n10",
+      "toPort": 0
+    },
+    {
+      "from": "n10",
+      "fromPort": 0,
+      "id": "c10",
+      "to": "n11",
+      "toPort": 0
+    },
+    {
+      "id": "conn_12",
+      "from": "n3",
+      "fromPort": 0,
+      "to": "n7",
+      "toPort": 0
+    }
+  ],
+  "nextId": 13
+}
