@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "excel_online_mcp": {
+      "command": "python",
+      "args": ["/path/to/excel_online_mcp.py"],
+      "env": {
+        "CDP_ENDPOINT": "http://localhost:9222",
+        "EXCEL_URL": "https://stannards-my.sharepoint.com/:x:/r/personal/kieran_farrell_stannards_com_au/_layouts/15/Doc.aspx?sourcedoc=%7BEF9E8724-85AA-4DD5-9675-00CB77C099D7%7D&file=Book.xlsx&action=editnew&mobileredirect=true"
+      }
+    }
+  }
+}
